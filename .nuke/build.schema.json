@@ -20,10 +20,6 @@
           "type": "boolean",
           "description": "Indicates to continue a previously failed build attempt"
         },
-        "Hello": {
-          "type": "string",
-          "description": "Hello param desc"
-        },
         "Help": {
           "type": "boolean",
           "description": "Shows the help text for this build assembly"
@@ -80,7 +76,11 @@
             "enum": [
               "Clean",
               "Compile",
+              "FunctionalTests",
               "Restore",
+              "RunTests",
+              "StartApi",
+              "StopApi",
               "UnitTests"
             ]
           }
@@ -97,7 +97,11 @@
             "enum": [
               "Clean",
               "Compile",
+              "FunctionalTests",
               "Restore",
+              "RunTests",
+              "StartApi",
+              "StopApi",
               "UnitTests"
             ]
           }

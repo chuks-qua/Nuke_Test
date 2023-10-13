@@ -198,45 +198,233 @@ window.addEventListener("load",function(){e.contentLoaded()},!1)}).call(e,n(9))}
 
     <script>
 $(document).ready(function() {
+  $("#StartApi").addClass('highlight');
+  $("#Clean").addClass('highlight');
   $("#Restore").addClass('highlight');
   $("#Compile").addClass('highlight');
+  $("#FunctionalTests").addClass('highlight');
+  $("#UnitTests").addClass('highlight');
+  $("#RunTests").addClass('highlight');
+  $("#StopApi").addClass('highlight');
   $("#Clean").hover(
     function() {
         $("#Clean").removeClass('highlight');
         $("#Restore").removeClass('highlight');
         $("#Compile").removeClass('highlight');
+        $("#UnitTests").removeClass('highlight');
+        $("#StartApi").removeClass('highlight');
+        $("#FunctionalTests").removeClass('highlight');
+        $("#StopApi").removeClass('highlight');
+        $("#RunTests").removeClass('highlight');
         $("#Clean").addClass('highlight');
     },
     function() {
         $("#Clean").removeClass('highlight');
+        $("#StartApi").addClass('highlight');
+        $("#Clean").addClass('highlight');
         $("#Restore").addClass('highlight');
         $("#Compile").addClass('highlight');
+        $("#FunctionalTests").addClass('highlight');
+        $("#UnitTests").addClass('highlight');
+        $("#RunTests").addClass('highlight');
+        $("#StopApi").addClass('highlight');
     });
   $("#Restore").hover(
     function() {
         $("#Clean").removeClass('highlight');
         $("#Restore").removeClass('highlight');
         $("#Compile").removeClass('highlight');
+        $("#UnitTests").removeClass('highlight');
+        $("#StartApi").removeClass('highlight');
+        $("#FunctionalTests").removeClass('highlight');
+        $("#StopApi").removeClass('highlight');
+        $("#RunTests").removeClass('highlight');
+        $("#Clean").addClass('highlight');
         $("#Restore").addClass('highlight');
     },
     function() {
+        $("#Clean").removeClass('highlight');
         $("#Restore").removeClass('highlight');
+        $("#StartApi").addClass('highlight');
+        $("#Clean").addClass('highlight');
         $("#Restore").addClass('highlight');
         $("#Compile").addClass('highlight');
+        $("#FunctionalTests").addClass('highlight');
+        $("#UnitTests").addClass('highlight');
+        $("#RunTests").addClass('highlight');
+        $("#StopApi").addClass('highlight');
     });
   $("#Compile").hover(
     function() {
         $("#Clean").removeClass('highlight');
         $("#Restore").removeClass('highlight');
         $("#Compile").removeClass('highlight');
+        $("#UnitTests").removeClass('highlight');
+        $("#StartApi").removeClass('highlight');
+        $("#FunctionalTests").removeClass('highlight');
+        $("#StopApi").removeClass('highlight');
+        $("#RunTests").removeClass('highlight');
+        $("#Clean").addClass('highlight');
         $("#Restore").addClass('highlight');
         $("#Compile").addClass('highlight');
     },
     function() {
+        $("#Clean").removeClass('highlight');
         $("#Restore").removeClass('highlight');
         $("#Compile").removeClass('highlight');
+        $("#StartApi").addClass('highlight');
+        $("#Clean").addClass('highlight');
         $("#Restore").addClass('highlight');
         $("#Compile").addClass('highlight');
+        $("#FunctionalTests").addClass('highlight');
+        $("#UnitTests").addClass('highlight');
+        $("#RunTests").addClass('highlight');
+        $("#StopApi").addClass('highlight');
+    });
+  $("#UnitTests").hover(
+    function() {
+        $("#Clean").removeClass('highlight');
+        $("#Restore").removeClass('highlight');
+        $("#Compile").removeClass('highlight');
+        $("#UnitTests").removeClass('highlight');
+        $("#StartApi").removeClass('highlight');
+        $("#FunctionalTests").removeClass('highlight');
+        $("#StopApi").removeClass('highlight');
+        $("#RunTests").removeClass('highlight');
+        $("#Clean").addClass('highlight');
+        $("#Restore").addClass('highlight');
+        $("#Compile").addClass('highlight');
+        $("#UnitTests").addClass('highlight');
+    },
+    function() {
+        $("#Clean").removeClass('highlight');
+        $("#Restore").removeClass('highlight');
+        $("#Compile").removeClass('highlight');
+        $("#UnitTests").removeClass('highlight');
+        $("#StartApi").addClass('highlight');
+        $("#Clean").addClass('highlight');
+        $("#Restore").addClass('highlight');
+        $("#Compile").addClass('highlight');
+        $("#FunctionalTests").addClass('highlight');
+        $("#UnitTests").addClass('highlight');
+        $("#RunTests").addClass('highlight');
+        $("#StopApi").addClass('highlight');
+    });
+  $("#StartApi").hover(
+    function() {
+        $("#Clean").removeClass('highlight');
+        $("#Restore").removeClass('highlight');
+        $("#Compile").removeClass('highlight');
+        $("#UnitTests").removeClass('highlight');
+        $("#StartApi").removeClass('highlight');
+        $("#FunctionalTests").removeClass('highlight');
+        $("#StopApi").removeClass('highlight');
+        $("#RunTests").removeClass('highlight');
+        $("#StartApi").addClass('highlight');
+    },
+    function() {
+        $("#StartApi").removeClass('highlight');
+        $("#StartApi").addClass('highlight');
+        $("#Clean").addClass('highlight');
+        $("#Restore").addClass('highlight');
+        $("#Compile").addClass('highlight');
+        $("#FunctionalTests").addClass('highlight');
+        $("#UnitTests").addClass('highlight');
+        $("#RunTests").addClass('highlight');
+        $("#StopApi").addClass('highlight');
+    });
+  $("#FunctionalTests").hover(
+    function() {
+        $("#Clean").removeClass('highlight');
+        $("#Restore").removeClass('highlight');
+        $("#Compile").removeClass('highlight');
+        $("#UnitTests").removeClass('highlight');
+        $("#StartApi").removeClass('highlight');
+        $("#FunctionalTests").removeClass('highlight');
+        $("#StopApi").removeClass('highlight');
+        $("#RunTests").removeClass('highlight');
+        $("#StartApi").addClass('highlight');
+        $("#Clean").addClass('highlight');
+        $("#Restore").addClass('highlight');
+        $("#Compile").addClass('highlight');
+        $("#FunctionalTests").addClass('highlight');
+        $("#StopApi").addClass('highlight');
+    },
+    function() {
+        $("#StartApi").removeClass('highlight');
+        $("#Clean").removeClass('highlight');
+        $("#Restore").removeClass('highlight');
+        $("#Compile").removeClass('highlight');
+        $("#FunctionalTests").removeClass('highlight');
+        $("#StopApi").removeClass('highlight');
+        $("#StartApi").addClass('highlight');
+        $("#Clean").addClass('highlight');
+        $("#Restore").addClass('highlight');
+        $("#Compile").addClass('highlight');
+        $("#FunctionalTests").addClass('highlight');
+        $("#UnitTests").addClass('highlight');
+        $("#RunTests").addClass('highlight');
+        $("#StopApi").addClass('highlight');
+    });
+  $("#StopApi").hover(
+    function() {
+        $("#Clean").removeClass('highlight');
+        $("#Restore").removeClass('highlight');
+        $("#Compile").removeClass('highlight');
+        $("#UnitTests").removeClass('highlight');
+        $("#StartApi").removeClass('highlight');
+        $("#FunctionalTests").removeClass('highlight');
+        $("#StopApi").removeClass('highlight');
+        $("#RunTests").removeClass('highlight');
+        $("#StopApi").addClass('highlight');
+    },
+    function() {
+        $("#StopApi").removeClass('highlight');
+        $("#StartApi").addClass('highlight');
+        $("#Clean").addClass('highlight');
+        $("#Restore").addClass('highlight');
+        $("#Compile").addClass('highlight');
+        $("#FunctionalTests").addClass('highlight');
+        $("#UnitTests").addClass('highlight');
+        $("#RunTests").addClass('highlight');
+        $("#StopApi").addClass('highlight');
+    });
+  $("#RunTests").hover(
+    function() {
+        $("#Clean").removeClass('highlight');
+        $("#Restore").removeClass('highlight');
+        $("#Compile").removeClass('highlight');
+        $("#UnitTests").removeClass('highlight');
+        $("#StartApi").removeClass('highlight');
+        $("#FunctionalTests").removeClass('highlight');
+        $("#StopApi").removeClass('highlight');
+        $("#RunTests").removeClass('highlight');
+        $("#StartApi").addClass('highlight');
+        $("#Clean").addClass('highlight');
+        $("#Restore").addClass('highlight');
+        $("#Compile").addClass('highlight');
+        $("#FunctionalTests").addClass('highlight');
+        $("#UnitTests").addClass('highlight');
+        $("#RunTests").addClass('highlight');
+        $("#StopApi").addClass('highlight');
+    },
+    function() {
+        $("#StartApi").removeClass('highlight');
+        $("#Clean").removeClass('highlight');
+        $("#Restore").removeClass('highlight');
+        $("#Compile").removeClass('highlight');
+        $("#FunctionalTests").removeClass('highlight');
+        $("#UnitTests").removeClass('highlight');
+        $("#RunTests").removeClass('highlight');
+        $("#StopApi").removeClass('highlight');
+        $("#StartApi").addClass('highlight');
+        $("#Clean").addClass('highlight');
+        $("#Restore").addClass('highlight');
+        $("#Compile").addClass('highlight');
+        $("#FunctionalTests").addClass('highlight');
+        $("#UnitTests").addClass('highlight');
+        $("#RunTests").addClass('highlight');
+        $("#StopApi").addClass('highlight');
     });
 
 });
@@ -282,9 +470,17 @@ $(document).ready(function() {
     
     <div class="mermaid">
 graph LR
-Clean -.-> Compile
+Clean --> Restore
+Clean --> Compile
 Restore --> Compile
-Compile
+Compile --> UnitTests
+Compile --> FunctionalTests
+UnitTests --> RunTests
+StartApi --> FunctionalTests
+FunctionalTests ==> StopApi
+FunctionalTests --> RunTests
+StopApi
+RunTests
 
 
 linkStyle default interpolate basis

@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Numerics;
 using Nuke.Common;
 using Nuke.Common.CI;
 using Nuke.Common.CI.GitHubActions;
@@ -14,7 +15,13 @@ using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.IO.PathConstruction;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
-[GitHubActions("build-and-test", GitHubActionsImage.WindowsLatest)]
+[GitHubActions(
+        "build-and-test",
+        GitHubActionsImage.UbuntuLatest,
+        OnPushBranches = new[] { "master", "main" },
+        InvokedTargets = new[] { nameof(Compile) }
+        )
+    ]
 class Build : NukeBuild
 {
     /// Support plugins are available for:
@@ -23,15 +30,15 @@ class Build : NukeBuild
     ///   - Microsoft VisualStudio     https://nuke.build/visualstudio
     ///   - Microsoft VSCode           https://nuke.build/vscode
 
-    public static int Main () => Execute<Build>(x => x.UnitTests);
+    public static int Main () => Execute<Build>(x => x.RunTests);
 
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
     readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
     [Solution] readonly Solution Solution;
         
-    [Parameter("Hello param desc")]
-    readonly string Hello;
-    bool proceed = false;
+    //[Parameter("Hello param desc")]
+    //readonly string Hello;
+    //bool proceed = false;
 
     //[PathExecutable] readonly Tool Git;
 
@@ -59,7 +66,7 @@ class Build : NukeBuild
             settings.SetProjectFile(Solution)
                 .SetConfiguration(Configuration)
                 .EnableNoRestore();
-            DotNetTasks.DotNetBuild(settings);
+            DotNetBuild(settings);
         });
 
     Target UnitTests => _ => _ 
@@ -73,5 +80,38 @@ class Build : NukeBuild
             );
         });
 
-    
+    public IProcess APIProcess { get; private set; }
+    Target StartApi => _ => _
+        .DependsOn(Compile)
+        .Triggers(StopApi)
+        .Executes(() =>
+        {
+            APIProcess = ProcessTasks.StartProcess("dotnet", "run", RootDirectory / "TestApi");
+            //Logger.Normal(APIProcess.);
+            
+        });
+
+    Target FunctionalTests => _ => _
+        .DependsOn(StartApi, Compile)
+        .Triggers(StopApi)
+        .Executes(() =>
+        {
+            DotNetTest(s => s
+                .SetProjectFile(RootDirectory / "TestApi.FunctionalTest")
+                .EnableNoBuild()
+                .EnableNoRestore()
+            );
+        });
+
+
+    Target StopApi => _ => _
+        .DependsOn(FunctionalTests)
+        .AssuredAfterFailure()
+        .Executes(() =>
+        {
+            APIProcess.Kill();
+        });
+
+
+    Target RunTests => _ => _.DependsOn(UnitTests, FunctionalTests);
 }
