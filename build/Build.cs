@@ -18,7 +18,7 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 [GitHubActions(
         "build-and-test",
         GitHubActionsImage.UbuntuLatest,
-        OnPushBranches = new[] { "master", "main" },
+        OnPullRequestBranches = new[] { "master", "main" },
         InvokedTargets = new[] { nameof(RunTests) }
         )
     ]
