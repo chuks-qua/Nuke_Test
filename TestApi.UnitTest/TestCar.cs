@@ -12,7 +12,6 @@ namespace TestApi.UnitTest
             Assert.Equal(a, car.Name);
             Assert.Equal(b, car.Color);
             Assert.Equal(c, car.YearManufactured);
-            Assert.True(false);
         }
     }
 }
