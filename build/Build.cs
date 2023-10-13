@@ -19,7 +19,7 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
         "build-and-test",
         GitHubActionsImage.UbuntuLatest,
         OnPushBranches = new[] { "master", "main" },
-        InvokedTargets = new[] { nameof(Compile) }
+        InvokedTargets = new[] { nameof(RunTests) }
         )
     ]
 class Build : NukeBuild
